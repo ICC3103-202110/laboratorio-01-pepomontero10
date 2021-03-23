@@ -59,3 +59,12 @@ print ("")
 
 for i in game_deck:
     print(i)
+
+done = 0
+
+while done != 1:
+    print("hola")
+
+    if game_deck == real_deck:
+        print("Winner!!")
+        done += 1
