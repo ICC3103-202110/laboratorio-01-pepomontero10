@@ -1,6 +1,6 @@
 import random
 
-print("Cuantas cartas quieres, jugador 1?")
+print("Cuantas cartas quieres?")
 cartas_1 = int(input())
 
 a = int(cartas_1)
@@ -18,8 +18,26 @@ maso = []
 for i in jugador_1:
     maso.append(i)
     maso.append(i)
-print(jugador_1)
-print(maso)
+
+random.shuffle(maso)
+
+real_maso = []
+b = int((2 * int(cartas_1))**(0.5))
+c = int(b) +1
+n = 0
+print(len(maso))
+while c != 0:
+    row = []
+    for i in range(b):
+        row.append(maso[n])
+        n += 1
+        if n == len(maso)-1 :
+            c -= 1
+    real_maso.append(row)
+    c -= 1
+
+for i in real_maso:
+    print(i)
 
 
 
