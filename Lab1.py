@@ -52,14 +52,6 @@ while c != 0:
 if len(row) == 0:
     game_deck.pop()
 
-
-
-for i in range(len(game_deck)):
-    for b in range(len(game_deck[i])):
-        game_deck[i][b] = "*"
-
-
-
 for i in real_deck:
     print(i)
 
