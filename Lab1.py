@@ -17,7 +17,7 @@ for i in player_1:
     deck.append(i)
 
 random.shuffle(deck)
-
+#matriz
 real_deck = []
 b = int((2 * int(cards_1))**(0.5))
 c = int(b)+1
@@ -34,16 +34,36 @@ while c != 0:
 
 if len(row) == 0:
     real_deck.pop()
+    
+game_deck = []
+b = int((2 * int(cards_1))**(0.5))
+c = int(b)+1
+n = 0
+while c != 0:
+    row = []
+    for i in range(b):
+        if n >= (int(cards_1)*2):
+            break
+        row.append("*")
+        n += 1
+    game_deck.append(row)
+    c -= 1
 
-game_deck = real_deck[:]
+if len(row) == 0:
+    game_deck.pop()
+
+
+
+for i in range(len(game_deck)):
+    for b in range(len(game_deck[i])):
+        game_deck[i][b] = "*"
+
+
 
 for i in real_deck:
     print(i)
 
-for i in game_deck:
-    for b in i:
-        game_deck[i][b] = "*"
+print ("") 
 
-print ("")
 for i in game_deck:
     print(i)
