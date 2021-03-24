@@ -24,7 +24,7 @@ c = int(b)+1
 n = 0
 while c != 0:
     row = []
-    for i in range(b):
+    for i in range(b+1):
         if n >= (int(cards_1)*2):
             break
         row.append(deck[n])
@@ -41,7 +41,7 @@ c = int(b)+1
 n = 0
 while c != 0:
     row = []
-    for i in range(b):
+    for i in range(b+1):
         if n >= (int(cards_1)*2):
             break
         row.append("*")
@@ -61,9 +61,18 @@ for i in game_deck:
     print(i)
 
 done = 0
-
+start = 0
 while done != 1:
-    print("hola")
+    while start == 0:
+        coordinate_1 = 0
+        coordinate_2 = 0
+        print("First Coordinates (row,column)")
+        coordinate_1 = input()
+        coordinate_1 = coordinate_1.split(",")
+        print("Second Coordinates (row,column)")
+        coordinate_2 = input()
+        coordinate_2 = coordinate_2.split(",")
+
 
     if game_deck == real_deck:
         print("Winner!!")
