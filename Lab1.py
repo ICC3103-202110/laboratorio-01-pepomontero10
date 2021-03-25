@@ -60,19 +60,47 @@ print ("")
 for i in game_deck:
     print(i)
 
+def deck_print(a):
+    for i in a:
+    print(i)
+
+def Coordinates(coordinate_1,coordinate_2):
+    x = 2
+    while x != 0:
+        coordinate_1[x-1]= int(coordinate_1[x-1])
+        coordinate_2[x-1]= int(coordinate_2[x-1])
+        x -= 1
+def Verification (coordinate_1,coordinate_2):   
+    if coordinate_1[0] <= len(game_deck)-1 and coordinate_1[1] < len(game_deck[0]) and coordinate_2[0] <= len(game_deck)-1 and coordinate_2[1] < len(game_deck[0]):
+        return True
+
 done = 0
 start = 0
+player_1 = 0
+player_2 = 0
 while done != 1:
-    while start == 0:
-        coordinate_1 = 0
-        coordinate_2 = 0
-        print("First Coordinates (row,column)")
-        coordinate_1 = input()
-        coordinate_1 = coordinate_1.split(",")
-        print("Second Coordinates (row,column)")
-        coordinate_2 = input()
-        coordinate_2 = coordinate_2.split(",")
+    print("Player 1, First Coordinates (row,column)")
+    coordinate_1 = input()
+    coordinate_1 = coordinate_1.split(",")
+    print("Player 1, Second Coordinates (row,column)")
+    coordinate_2 = input()
+    coordinate_2 = coordinate_2.split(",")
+    Coordinates(coordinate_1,coordinate_2)
+    if Verification(coordinate_1,coordinate_2) == True:
+        print("hola")
 
+
+    else:
+        print("You lost your turn, because your coordinates are invalid")
+
+
+    print("Player 2, First Coordinates (row,column)")
+    coordinate_1 = input()
+    coordinate_1 = coordinate_1.split(",")
+    print("Player 2, Second Coordinates (row,column)")
+    coordinate_2 = input()
+    coordinate_2 = coordinate_2.split(",")
+    Coordinates(coordinate_1,coordinate_2)
 
     if game_deck == real_deck:
         print("Winner!!")
