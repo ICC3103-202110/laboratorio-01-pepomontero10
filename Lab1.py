@@ -1,18 +1,18 @@
 import random
-print("How many card do you want?")
+print("How many pairs do you want?")
 cards_1 = int(input())
 a = int(cards_1)
-player_1 = []
+player = []
 
 while a != 0:
     x = random.randint(1,int(cards_1))
-    if x in player_1:
-        player_1.remove(x)
+    if x in player:
+        player.remove(x)
         a += 1
     player_1.append(x)
     a -= 1
 deck = []
-for i in player_1:
+for i in player:
     deck.append(i)
     deck.append(i)
 
@@ -87,6 +87,8 @@ while done != 1:
         print(deck_print(game_deck))
     else:
         print("You lost your turn, because your coordinates are invalid")
+
+
     print("Player 1, Second Coordinates (row,column)")
     coordinate_2 = input()
     coordinate_2 = coordinate_2.split(",")
@@ -96,9 +98,14 @@ while done != 1:
         print(deck_print(game_deck))
         if game_deck[coordinate_2[0]][coordinate_2[1]] ==game_deck[coordinate_1[0]][coordinate_1[1]]:
             player_1 += 1
+            print("Score Player 1:", player_1, "Player 2:", player_2)
             game_deck[coordinate_1[0]][coordinate_1[1]] = " "
             game_deck[coordinate_2[0]][coordinate_2[1]] = " "
             print(deck_print(game_deck))
+        elif game_deck[coordinate_2[0]][coordinate_2[1]] !=game_deck[coordinate_1[0]][coordinate_1[1]]:
+            game_deck[coordinate_1[0]][coordinate_1[1]] = "*"
+            game_deck[coordinate_2[0]][coordinate_2[1]] = "*"
+
     else:
         print("You lost your turn, because your coordinates are invalid")
 
@@ -112,6 +119,8 @@ while done != 1:
         print(deck_print(game_deck))
     else:
         print("You lost your turn, because your coordinates are invalid")
+
+
     print("Player 2, Second Coordinates (row,column)")
     coordinate_2 = input()
     coordinate_2 = coordinate_2.split(",")
@@ -119,10 +128,19 @@ while done != 1:
     if Verification(coordinate_2) == True:
         game_deck[coordinate_2[0]][coordinate_2[1]] = real_deck[coordinate_2[0]][coordinate_2[1]]
         print(deck_print(game_deck))
+        if game_deck[coordinate_2[0]][coordinate_2[1]] ==game_deck[coordinate_1[0]][coordinate_1[1]]:
+            player_2 += 1
+            print("Score Player 1:", player_1, "Player 2:", player_2)
+            game_deck[coordinate_1[0]][coordinate_1[1]] = " "
+            game_deck[coordinate_2[0]][coordinate_2[1]] = " "
+            print(deck_print(game_deck))
+        elif game_deck[coordinate_2[0]][coordinate_2[1]] !=game_deck[coordinate_1[0]][coordinate_1[1]]:
+            game_deck[coordinate_1[0]][coordinate_1[1]] = "*"
+            game_deck[coordinate_2[0]][coordinate_2[1]] = "*"
     else:
         print("You lost your turn, because your coordinates are invalid")
 
-    if game_deck == 0:
+    if player_2 + player_1 == cards_1 :
         if player_1 > player_2:
             print("player_1 has won!!")
         elif player_2 > player_1:
