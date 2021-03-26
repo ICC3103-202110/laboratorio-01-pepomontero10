@@ -83,7 +83,7 @@ while done != 1:
     while k != 0:
         if player_1+player_2 == cards_1:
             break
-        print("Player 1, First Coordinates (column,row)")
+        print("Player 1, First Coordinates (row, column)")
         coordinate_1 = input()
         coordinate_1 = coordinate_1.split(",")
         Coordinates(coordinate_1)
@@ -101,7 +101,7 @@ while done != 1:
             deck_print(game_deck)
         
 
-        print("Player 1, Second Coordinates (column,row)")
+        print("Player 1, Second Coordinates (row, column)")
         coordinate_2 = input()
         coordinate_2 = coordinate_2.split(",")
         Coordinates(coordinate_2)
@@ -137,7 +137,7 @@ while done != 1:
     while k != 0:
         if player_1 + player_2 == cards_1:
             break
-        print("Player 2, First Coordinates (column,row)")
+        print("Player 2, First Coordinates (row, column)")
         coordinate_1 = input()
         coordinate_1 = coordinate_1.split(",")
         Coordinates(coordinate_1)
@@ -155,7 +155,7 @@ while done != 1:
             deck_print(game_deck)
         
 
-        print("Player 2, Second Coordinates (column,row)")
+        print("Player 2, Second Coordinates (row, column)")
         coordinate_2 = input()
         coordinate_2 = coordinate_2.split(",")
         Coordinates(coordinate_2)
