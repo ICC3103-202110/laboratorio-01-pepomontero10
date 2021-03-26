@@ -52,8 +52,6 @@ while c != 0:
 if len(row) == 0:
     game_deck.pop()
 
-for i in real_deck:
-    print(i)
 
 print ("") 
 
@@ -78,95 +76,109 @@ start = 0
 player_1 = 0
 player_2 = 0
 while done != 1:
-    print("Player 1, First Coordinate (row,column)")
-    coordinate_1 = input()
-    coordinate_1 = coordinate_1.split(",")
-    Coordinates(coordinate_1)
-    if game_deck[coordinate_1[0]][coordinate_1[1]] == " " and Verification(coordinate_1) == True:
-        print("Choose another pair of coordinate because those were already picked")
+    k =1 
+    while k != 0:
+        if player_1+player_2 == cards_1:
+            break
+        print("Player 1, First Coordinate (row,column)")
         coordinate_1 = input()
         coordinate_1 = coordinate_1.split(",")
         Coordinates(coordinate_1)
-    if Verification(coordinate_1) == True:
-        game_deck[coordinate_1[0]][coordinate_1[1]] = real_deck[coordinate_1[0]][coordinate_1[1]]
-        deck_print(game_deck)
-    elif Verification(coordinate_2) == False:
-        print("You lost your turn, because your coordinates are invalid")
+        if game_deck[coordinate_1[0]][coordinate_1[1]] == " " and Verification(coordinate_1) == True:
+            print("Choose another pair of coordinate because those were already picked")
+            coordinate_1 = input()
+            coordinate_1 = coordinate_1.split(",")
+            Coordinates(coordinate_1)
+        if Verification(coordinate_1) == True:
+            game_deck[coordinate_1[0]][coordinate_1[1]] = real_deck[coordinate_1[0]][coordinate_1[1]]
+            deck_print(game_deck)
+        elif Verification(coordinate_2) == False:
+            print("You lost your turn, because your coordinates are invalid")
+            k -= 1
 
-    print("Player 1, Second Coordinates (row,column)")
-    coordinate_2 = input()
-    coordinate_2 = coordinate_2.split(",")
-    Coordinates(coordinate_2)
-    if game_deck[coordinate_2[0]][coordinate_2[1]] == " " and Verification(coordinate_2) == True:
-        print("Choose another pair of coordinate because those were already picked")
+        print("Player 1, Second Coordinates (row,column)")
         coordinate_2 = input()
         coordinate_2 = coordinate_2.split(",")
         Coordinates(coordinate_2)
-    if Verification(coordinate_2) == True:
-        game_deck[coordinate_2[0]][coordinate_2[1]] = real_deck[coordinate_2[0]][coordinate_2[1]]
-        deck_print(game_deck)
-        if game_deck[coordinate_2[0]][coordinate_2[1]] ==game_deck[coordinate_1[0]][coordinate_1[1]]:
-            player_1 += 1
-            print("---------")
-            print("Score Player 1:", player_1, "Player 2:", player_2)
-            print("---------")
-            game_deck[coordinate_1[0]][coordinate_1[1]] = " "
-            game_deck[coordinate_2[0]][coordinate_2[1]] = " "
+        if game_deck[coordinate_2[0]][coordinate_2[1]] == " " and Verification(coordinate_2) == True:
+            print("Choose another pair of coordinate because those were already picked")
+            coordinate_2 = input()
+            coordinate_2 = coordinate_2.split(",")
+            Coordinates(coordinate_2)
+        if Verification(coordinate_2) == True:
+            game_deck[coordinate_2[0]][coordinate_2[1]] = real_deck[coordinate_2[0]][coordinate_2[1]]
             deck_print(game_deck)
-        elif game_deck[coordinate_2[0]][coordinate_2[1]] !=game_deck[coordinate_1[0]][coordinate_1[1]]:
-            game_deck[coordinate_1[0]][coordinate_1[1]] = "*"
-            game_deck[coordinate_2[0]][coordinate_2[1]] = "*"
-    elif Verification(coordinate_2) == False:
-        print("You lost your turn, because your coordinates are invalid")
+            if game_deck[coordinate_2[0]][coordinate_2[1]] ==game_deck[coordinate_1[0]][coordinate_1[1]]:
+                player_1 += 1
+                print("---------")
+                print("Score Player 1:", player_1, "Player 2:", player_2)
+                print("---------")
+                game_deck[coordinate_1[0]][coordinate_1[1]] = " "
+                game_deck[coordinate_2[0]][coordinate_2[1]] = " "
+                deck_print(game_deck)
+            elif game_deck[coordinate_2[0]][coordinate_2[1]] !=game_deck[coordinate_1[0]][coordinate_1[1]]:
+                game_deck[coordinate_1[0]][coordinate_1[1]] = "*"
+                game_deck[coordinate_2[0]][coordinate_2[1]] = "*"
+                k -= 1
+        elif Verification(coordinate_2) == False:
+            print("You lost your turn, because your coordinates are invalid")
+            k -= 1
 
 #PLAYER 2
-    print("Player 2, First Coordinates (row,column)")
-    coordinate_1 = input()
-    coordinate_1 = coordinate_1.split(",")
-    Coordinates(coordinate_1)
-    if game_deck[coordinate_1[0]][coordinate_1[1]] == " " and Verification(coordinate_1) == True:
-        print("Choose another pair of coordinate because those were already picked")
+
+    k = 1
+    while k != 0:
+        if player_1+player_2 == cards_1:
+            break
+        print("Player 2, First Coordinates (row,column)")
         coordinate_1 = input()
         coordinate_1 = coordinate_1.split(",")
         Coordinates(coordinate_1)
-    if Verification(coordinate_1) == True:
-        game_deck[coordinate_1[0]][coordinate_1[1]] = real_deck[coordinate_1[0]][coordinate_1[1]]
-        deck_print(game_deck)
-    elif Verification(coordinate_2) == False:
-        print("You lost your turn, because your coordinates are invalid")
+        if game_deck[coordinate_1[0]][coordinate_1[1]] == " " and Verification(coordinate_1) == True:
+            print("Choose another pair of coordinate because those were already picked")
+            coordinate_1 = input()
+            coordinate_1 = coordinate_1.split(",")
+            Coordinates(coordinate_1)
+        if Verification(coordinate_1) == True:
+            game_deck[coordinate_1[0]][coordinate_1[1]] = real_deck[coordinate_1[0]][coordinate_1[1]]
+            deck_print(game_deck)
+        elif Verification(coordinate_2) == False:
+            print("You lost your turn, because your coordinates are invalid")
+            k -= 1
 
-
-    print("Player 2, Second Coordinates (row,column)")
-    coordinate_2 = input()
-    coordinate_2 = coordinate_2.split(",")
-    Coordinates(coordinate_2)
-    if game_deck[coordinate_2[0]][coordinate_2[1]] == " " and Verification(coordinate_2) == True:
-        print("Choose another pair of coordinate because those were already picked")
+        print("Player 2, Second Coordinates (row,column)")
         coordinate_2 = input()
         coordinate_2 = coordinate_2.split(",")
         Coordinates(coordinate_2)
-    if Verification(coordinate_2) == True:
-        game_deck[coordinate_2[0]][coordinate_2[1]] = real_deck[coordinate_2[0]][coordinate_2[1]]
-        deck_print(game_deck)
-        if game_deck[coordinate_2[0]][coordinate_2[1]] ==game_deck[coordinate_1[0]][coordinate_1[1]]:
-            player_2 += 1
-            print("---------")
-            print("Score Player 1:", player_1, "Player 2:", player_2)
-            print("---------")
-            game_deck[coordinate_1[0]][coordinate_1[1]] = " "
-            game_deck[coordinate_2[0]][coordinate_2[1]] = " "
+        if game_deck[coordinate_2[0]][coordinate_2[1]] == " " and Verification(coordinate_2) == True:
+            print("Choose another pair of coordinate because those were already picked")
+            coordinate_2 = input()
+            coordinate_2 = coordinate_2.split(",")
+            Coordinates(coordinate_2)
+        if Verification(coordinate_2) == True:
+            game_deck[coordinate_2[0]][coordinate_2[1]] = real_deck[coordinate_2[0]][coordinate_2[1]]
             deck_print(game_deck)
-        elif game_deck[coordinate_2[0]][coordinate_2[1]] !=game_deck[coordinate_1[0]][coordinate_1[1]]:
-            game_deck[coordinate_1[0]][coordinate_1[1]] = "*"
-            game_deck[coordinate_2[0]][coordinate_2[1]] = "*"
-    elif Verification(coordinate_2) == False:
-        print("You lost your turn, because your coordinates are invalid")
+            if game_deck[coordinate_2[0]][coordinate_2[1]] ==game_deck[coordinate_1[0]][coordinate_1[1]]:
+                player_2 += 1
+                print("---------")
+                print("Score Player 1:", player_1, "Player 2:", player_2)
+                print("---------")
+                game_deck[coordinate_1[0]][coordinate_1[1]] = " "
+                game_deck[coordinate_2[0]][coordinate_2[1]] = " "
+                deck_print(game_deck)
+            elif game_deck[coordinate_2[0]][coordinate_2[1]] !=game_deck[coordinate_1[0]][coordinate_1[1]]:
+                game_deck[coordinate_1[0]][coordinate_1[1]] = "*"
+                game_deck[coordinate_2[0]][coordinate_2[1]] = "*"
+                k -= 1
+        elif Verification(coordinate_2) == False:
+            print("You lost your turn, because your coordinates are invalid")
+            k -= 1
 
     if player_2 + player_1 == cards_1 :
         if player_1 > player_2:
-            print("player_1 has won!!")
+            print("Player 1 has won!!")
         elif player_2 > player_1:
-            print("player_2 has won!!")
+            print("Player 2 has won!!")
         elif player_1 == player_2:
             print("tie!!")
         
