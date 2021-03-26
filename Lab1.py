@@ -68,7 +68,7 @@ def Coordinates(coordinate_1):
         coordinate_1[x-1]= int(coordinate_1[x-1])
         x -= 1
 def Verification (coordinate_1): 
-    if coordinate_1[0] <= len(game_deck)-1 and coordinate_1[1] < len(game_deck[0]):
+    if coordinate_1[0] <= len(game_deck)-1 and coordinate_1[1] < len(game_deck[coordinate_1[0]]):
         return True
     else:
         return False  
