@@ -72,6 +72,7 @@ def Verification (coordinate_1):
         return True
     else:
         return False  
+    
 
 done = 0
 start = 0
