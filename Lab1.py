@@ -74,7 +74,7 @@ def Verification (coordinate_1):
         return False  
     
 
-
+done = 0
 player_1 = 0
 player_2 = 0
 while done != 1:
