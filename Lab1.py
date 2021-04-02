@@ -1,11 +1,11 @@
 import random
 print("How many pairs do you want?")
-cards_1 = int(input())
-a = int(cards_1)
+pars = int(input())
+a = int(pars)
 player = []
 
 while a != 0:
-    x = random.randint(1,int(cards_1))
+    x = random.randint(1,int(pars))
     if x in player:
         player.remove(x)
         a += 1
@@ -19,13 +19,13 @@ for i in player:
 random.shuffle(deck)
 #matriz
 real_deck = []
-b = int((2 * int(cards_1))**(0.5))
+b = int((2 * int(pars))**(0.5))
 c = int(b)+1
 n = 0
 while c != 0:
     row = []
     for i in range(b+1):
-        if n >= (int(cards_1)*2):
+        if n >= (int(pars)*2):
             break
         row.append(deck[n])
         n += 1
@@ -36,13 +36,13 @@ if len(row) == 0:
     real_deck.pop()
     
 game_deck = []
-b = int((2 * int(cards_1))**(0.5))
+b = int((2 * int(pars))**(0.5))
 c = int(b)+1
 n = 0
 while c != 0:
     row = []
     for i in range(b+1):
-        if n >= (int(cards_1)*2):
+        if n >= (int(pars)*2):
             break
         row.append("*")
         n += 1
@@ -74,14 +74,13 @@ def Verification (coordinate_1):
         return False  
     
 
-done = 0
-start = 0
+
 player_1 = 0
 player_2 = 0
 while done != 1:
-    k =1 
+    k = 1 
     while k != 0:
-        if player_1+player_2 == cards_1:
+        if player_1+player_2 == pars:
             break
         print("Player 1, First Coordinates (row, column)")
         coordinate_1 = input()
@@ -135,7 +134,7 @@ while done != 1:
 
     k = 1
     while k != 0:
-        if player_1 + player_2 == cards_1:
+        if player_1 + player_2 == pars:
             break
         print("Player 2, First Coordinates (row, column)")
         coordinate_1 = input()
@@ -186,7 +185,7 @@ while done != 1:
                 k -= 1
 
 
-    if player_2 + player_1 == cards_1 :
+    if player_2 + player_1 == pars :
         if player_1 > player_2:
             print("Player 1 has won!!")
         elif player_2 > player_1:
